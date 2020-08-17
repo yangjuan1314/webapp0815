@@ -1,0 +1,3 @@
+data action opter
+//input[@id="name"],sendkeys,test9
+//input[@id="pass"],sendkeys,123456
