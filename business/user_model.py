@@ -44,3 +44,9 @@ class UserModel:
         self.registerPage.register_eamil.send_keys(email)
 
         self.registerPage.register_btn.click()
+
+    def get_register_result(self,is_success=False):
+        if not is_success:
+            return self.registerPage.register_error_result.text
+        else:
+            return self.registerPage.register_success_result.text

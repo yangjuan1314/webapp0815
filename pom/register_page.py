@@ -10,6 +10,9 @@ class RegisterPage(BaseDriver):
     _register_email='//input[@id="email"]'
     _register_btn='//input[@type="submit"]'
 
+    _register_error_result=''
+    _register_success_result=''
+
 
     @property
     def register_name(self):
@@ -50,5 +53,13 @@ class RegisterPage(BaseDriver):
         :return:
         '''
         return self.driver.find_element_by_xpath(self._register_btn)
+
+    @property
+    def register_error_result(self):
+        return self.driver.find_element_by_xpath(self._register_error_result)
+
+    @property
+    def register_success_result(self):
+        return self.driver.find_element_by_xpath(self._register_success_result)
 
 
