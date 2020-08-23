@@ -16,3 +16,10 @@ class MainModel:
         """
         self.mainPage.login_link.click()
         return self.userModel
+
+    def user_name_text(self):
+        '''
+        获取用户的文本值
+        :return:
+        '''
+        return self.mainPage.user_login_name.text

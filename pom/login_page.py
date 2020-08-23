@@ -1,4 +1,4 @@
-#首页登录
+#首页登录元素定位
 
 from selenium.webdriver.common.by import By
 from pom.base import BaseDriver
