@@ -5,12 +5,12 @@ import csv,os
 
 logincsv = os.path.join(os.path.dirname(__file__),'../data/login.csv')
 
-# test_csv_data= []
-# with open(logincsv) as f:
-#     reader = csv.DictReader(f)
-#     for line in reader:
-#         print(line)
-#         test_csv_data.append(line)
+test_csv_data= []
+with open(logincsv) as f:
+    reader = csv.DictReader(f)
+    for line in reader:
+        print(line)
+        test_csv_data.append(line)
 
 #  [{'username': 'test10', 'passwd': "''"},{'username': 'test10', 'passwd': '123456'},{'username': "''", 'passwd': '123456'}]
 
@@ -40,7 +40,7 @@ class TestLogin(unittest.TestCase):
         BaseUtil.driver.delete_all_cookies()
         BaseUtil.driver.get('http://49.233.108.117:3000/')
     # 测试方法  test开头
-
+    @unittest.skip('这条data用例不执行')
     @unpack
     @data(('test1','123456'),('',''),('test1',''),('','123456'))
     def test_login(self,name,passwd):
@@ -50,20 +50,20 @@ class TestLogin(unittest.TestCase):
         # login_name = main.user_name_text
         # self.assertEqual(login_name,'test10')
 
-    # @unittest.skip('No')
-    # @file_data('../data/login.json')
-    # def test_login_json(self,loginname, passwd):
-    #     self.user.user_login(loginname, passwd)
-    #
-    # @unittest.skip('No')
-    # @file_data('../data/login.yaml')
-    # def test_login_yaml(self,loginname, passwd):
-    #     self.user.user_login(loginname, passwd)
-    #
-    # @unpack
-    # @data(*test_csv_data)
-    # def test_login_csv(self,username,passwd):
-    #     self.user.user_login(username, passwd)
+    @unittest.skip('这条json也不执行')
+    @file_data('../data/login.json')
+    def test_login_json(self,loginname, passwd):
+        self.user.user_login(loginname, passwd)
+
+    @unittest.skip('这条yaml也不执行')
+    @file_data('../data/login.yaml')
+    def test_login_yaml(self,loginname, passwd):
+        self.user.user_login(loginname, passwd)
+
+    @unpack
+    @data(*test_csv_data)
+    def test_login_csv(self,username,passwd):
+        self.user.user_login(username, passwd)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

@@ -5,9 +5,10 @@ import os
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 #chromedriver = os.path.join(os.path.dirname(__file__),'./chromedriver.exe')
-screenshot_dirs=os.path.join(os.path.dirname(__file__),'../screenshots')
-if not os.path.exists(screenshot_dirs):
-    os.makedirs(screenshot_dirs)
+
+screenshots_dirs = os.path.join(os.path.dirname(__file__),'../screenshots')
+if not os.path.exists(screenshots_dirs):
+    os.makedirs(screenshots_dirs)
 
 class BaseDriver:
     driver:WebDriver= None
@@ -24,7 +25,6 @@ class BaseUtil(BaseDriver):
     @staticmethod
     def save_screenshot():
         import time
-        filename=time.strftime('%Y_%m_%D_%H_%M_%S')
-        filepath=os.path.join(screenshot_dirs,filename+'.png')
-        print(filepath)
+        filename = time.strftime('%Y_%m_%d_%H_%M_%S')
+        filepath = os.path.join(screenshots_dirs, filename + '.png')
         BaseUtil.driver.save_screenshot(filepath)
