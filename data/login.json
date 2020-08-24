@@ -1,0 +1,14 @@
+{
+  "用户名密码错误": {
+    "loginname": "test10",
+    "passwd": "654321"
+  },
+  "用户名为空密码不为空": {
+    "loginname": "",
+    "passwd": "654321"
+  },
+  "用户名不为空密码为空": {
+    "loginname": "test10",
+    "passwd": ""
+  }
+}

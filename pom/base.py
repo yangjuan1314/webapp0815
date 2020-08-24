@@ -5,7 +5,7 @@ import os
 from selenium.webdriver.chrome.webdriver import WebDriver
 
 #chromedriver = os.path.join(os.path.dirname(__file__),'./chromedriver.exe')
-screenshot_dirs=os.path.join(os.path.dirname(__file__),'./screenshots')
+screenshot_dirs=os.path.join(os.path.dirname(__file__),'../screenshots')
 if not os.path.exists(screenshot_dirs):
     os.makedirs(screenshot_dirs)
 
