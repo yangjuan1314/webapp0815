@@ -34,6 +34,8 @@ def runner_default():
 def runner_html_report():
     #创建runner
     suite=create_test_suite()
+    import time
+
     with open('report.html',mode='wb')as f:
         runner=HTMLTestRunner(stream=f,title='cndoe.js test',description='第一套测试报告')
         runner.run(suite)
