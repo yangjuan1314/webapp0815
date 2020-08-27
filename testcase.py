@@ -10,6 +10,8 @@
 
 
 import unittest
+from pom.base import *
+from HTMLTestRunner import HTMLTestRunner
 
 def create_test_suite():
     #测试套件
@@ -22,13 +24,22 @@ def create_test_suite():
     suite.addTests(alltests)
     return suite
 
-if __name__ == '__main__':
-    #创建测试套件
-    runner=unittest.TextTestRunner(verbosity=2)
-    #获取测试套件
-    suite=create_test_suite()
+def runner_default():
+    # 创建测试套件
+    runner = unittest.TextTestRunner(verbosity=2)
+    # 获取测试套件
+    suite = create_test_suite()
     runner.run(suite)
 
+def runner_html_report():
+    #创建runner
+    suite=create_test_suite()
+    with open('report.html',mode='wb')as f:
+        runner=HTMLTestRunner(stream=f,title='cndoe.js test',description='第一套测试报告')
+        runner.run(suite)
 
 
+if __name__ == '__main__':
 
+    runner_html_report()
+    BaseUtil.close_window()

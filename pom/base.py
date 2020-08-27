@@ -10,6 +10,8 @@ screenshots_dirs = os.path.join(os.path.dirname(__file__),'../screenshots')
 if not os.path.exists(screenshots_dirs):
     os.makedirs(screenshots_dirs)
 
+
+#定义浏览器类
 class BaseDriver:
     driver:WebDriver= None
     def __init__(self):
@@ -20,6 +22,7 @@ class BaseDriver:
             self.driver.get("http://49.233.108.117:3000/")
 
 
+#一些操作类
 class BaseUtil(BaseDriver):
     #截图方法
     @staticmethod
@@ -28,3 +31,12 @@ class BaseUtil(BaseDriver):
         filename = time.strftime('%Y_%m_%d_%H_%M_%S')
         filepath = os.path.join(screenshots_dirs, filename + '.png')
         BaseUtil.driver.save_screenshot(filepath)
+
+    @staticmethod
+    def max_window():
+        baseutil=BaseUtil()
+        baseutil.driver.maximize_window()
+
+    @staticmethod
+    def close_window():
+        BaseUtil.driver.quit()

@@ -35,10 +35,12 @@ class TestLogin(unittest.TestCase):
         """整个类运行执行前操作"""
         main = MainModel()
         cls.user = main.go_to_login_page()
+
     @classmethod
     def tearDownClass(cls) -> None:
         BaseUtil.driver.delete_all_cookies()
         BaseUtil.driver.get('http://49.233.108.117:3000/')
+
     # 测试方法  test开头
     @unittest.skip('这条data用例不执行')
     @unpack
